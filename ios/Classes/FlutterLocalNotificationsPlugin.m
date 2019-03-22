@@ -82,7 +82,7 @@ typedef NS_ENUM(NSInteger, RepeatInterval) {
     // callbackChannel = [FlutterMethodChannel methodChannelWithName:CALLBACK_CHANNEL binaryMessenger:headlessRunner];
     if(@available(iOS 10.0, *)) {
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-        center.delegate = instance;
+        //WORKAROUND for cloud_messaging callbacks: center.delegate = instance;
     }
     [registrar addApplicationDelegate:instance];
     [registrar addMethodCallDelegate:instance channel:channel];
